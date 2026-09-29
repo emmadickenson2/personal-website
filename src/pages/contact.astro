@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout title="Contact" description="Get in touch with Emma Dickenson.">
+	<div class="contact-page">
+		<section class="contact-copy" aria-labelledby="contact-heading">
+			<p class="eyebrow">Get in touch</p>
+			<h2 id="contact-heading">Let's start a conversation.</h2>
+			<p>Have a question, an idea, or just want to say hello? Send me a message.</p>
+			<div><b>Email:</b> <a href="mailto:emmadickenson2@gmail.com">emmadickenson2@gmail.com</a></div>
+			<div><b>Location:</b> Seattle, WA</div>
+		</section>
+	</div>
+</Layout>
+
+<script>
+	const contactForm = document.querySelector<HTMLFormElement>('#contact-form');
+
+	contactForm?.addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const formData = new FormData(contactForm);
+		const name = String(formData.get('name') ?? '');
+		const email = String(formData.get('email') ?? '');
+		const message = String(formData.get('message') ?? '');
+		const subject = encodeURIComponent(`Website message from ${name}`);
+		const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+
+		window.location.href = `mailto:emmadickenson2@gmail.com?subject=${subject}&body=${body}`;
+	});
+</script>
+
+<style>
+	.contact-page {
+		display: block;
+	}
+
+	.contact-copy h2 {
+		font-size: 1.8em;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.5rem;
+		color: var(--accent-dark);
+		font-size: 0.8em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.email-fallback {
+		display: grid;
+		gap: 0.25rem;
+		margin-top: 2rem;
+		font-size: 0.9em;
+	}
+
+	.contact-form {
+		display: grid;
+		gap: 0.6rem;
+	}
+
+	.contact-form label {
+		font-size: 0.9em;
+		font-weight: 700;
+	}
+
+	.contact-form input,
+	.contact-form textarea {
+		box-sizing: border-box;
+		width: 100%;
+		margin-bottom: 0.6rem;
+		padding: 0.7rem;
+		border: 1px solid rgb(var(--gray));
+		border-radius: 4px;
+		background: #fff;
+		color: rgb(var(--gray-dark));
+		font: inherit;
+	}
+
+	.contact-form input:focus-visible,
+	.contact-form textarea:focus-visible {
+		outline: 3px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.contact-form textarea {
+		resize: vertical;
+	}
+
+	.contact-form button {
+		width: fit-content;
+		padding: 0.7rem 1.1rem;
+		border: 0;
+		border-radius: 4px;
+		background: var(--accent-dark);
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.contact-form button:hover {
+		background: var(--accent);
+	}
+
+	.form-note {
+		margin: 0;
+		font-size: 0.75em;
+	}
+
+</style>

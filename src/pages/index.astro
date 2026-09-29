@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import profilePhoto from '../assets/profile-photo.jpeg';
+import { Content } from '../content/pages/index.md';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+	<main>
+		<div class="hero">
+			<div class="hero-copy">
+				<h1>Emma Dickenson</h1>
+				<h4>Software Engineer specializing in quality — and a creator at heart.</h4>
+			</div>
+			<img src={profilePhoto.src} alt="Emma Dickenson" class="profile-photo" />
+		</div>
+		<section class="intro">
+			<Content />
+		</section>
+	</main>
+		<Footer />
+	</body>
+</html>

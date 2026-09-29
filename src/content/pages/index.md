@@ -1,0 +1,3 @@
+Product superuser here. If you're looking for someone to deeply understand your software and advocate for the quality of your product, whether testing or building it, you've come to the right place. Reach out to [emmadickenson2@gmail.com](mailto:emmadickenson2@gmail.com).
+
+And if you are lost, procrastinating, on a mission to increase screentime, craving random content to read, or just wanting to humor my creative itch, I invite you to check out my [blog](/blog)!

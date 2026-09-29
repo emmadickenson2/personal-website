@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from 'astro:content';
+import AboutMeImage from '../assets/aboutme.jpg';
+import Layout from '../layouts/BlogPost.astro';
+import '../styles/about.css';
+
+const about = await getEntry('pages', 'about');
+if (!about) throw new Error('About page content not found');
+const { Content } = await render(about);
+---
+
+<Layout
+	title="About Me"
+	description="Learn more about Emma Dickenson."
+>
+	<div class="about-photo-wrap">
+		<img src={AboutMeImage.src} alt="About me" class="about-photo" />
+	</div>
+	<Content />
+</Layout>
